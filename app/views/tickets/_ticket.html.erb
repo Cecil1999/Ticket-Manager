@@ -1,0 +1,18 @@
+<div id="<%= dom_id ticket %>">
+  <p>
+    <strong>Title:</strong>
+    <%= ticket.title %>
+  </p>
+  <p>
+    <strong>Type:</strong>
+    <%= ticket.ticket_type %>
+  </p>
+
+  <p>
+    <strong>Body</strong>
+    <textarea cols="70" rows="5">
+<%= ticket.body %>
+    </textarea>
+  </p>
+
+</div>
