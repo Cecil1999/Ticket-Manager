@@ -11,16 +11,33 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-    <%= form.label :ticket_type_id, style: "display: block" %>
-    <%= form.select :ticket_type_id, @ticket_types %>
-    <%= form.label :body, style: "display: block"%>
-    <%= form.textarea :body, size: "70x5" %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="container">
+    <div class="row align-items-start p-4 border">
+      <div class="col p-1">
+        <div class="float-start me-1">
+          <%= form.label :title %>
+        </div>
+        <div class="float-start w-75">
+          <%= form.text_field :title, class:"form-control" %>
+        </div>
+      </div>
+      <div class="col p-1">
+        <div class="float-start me-1">
+          <%= form.label :ticket_type_id %>
+        </div>
+        <div class="float-start w-75">
+          <%= form.select :ticket_type_id, @ticket_types, { include_blank: "--SELECT--" }, { class: "form-control" } %>
+        </div>
+      </div>
+    </div>
+    <div class="row p-4 border">
+      <div class="col p-1">
+        <%= form.label :body %>
+        <%= form.textarea :body, class: "form-control", rows: "8" %>
+      </div>
+    </div>
+    <div class="row p-4">
+      <%= form.submit(class: "btn btn-primary", style: "width: 150px") %>
+    </div>
   </div>
 <% end %>

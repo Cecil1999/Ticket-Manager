@@ -1,18 +1,32 @@
 <div id="<%= dom_id ticket %>">
-  <p>
-    <strong>Title:</strong>
-    <%= ticket.title %>
-  </p>
-  <p>
-    <strong>Type:</strong>
-    <%= ticket.ticket_type_id %>
-  </p>
-
-  <p>
-    <strong>Body</strong>
-    <textarea cols="70" rows="5">
+  <div class="container">
+    <div class="row align-items-start p-4 border">
+      <div class="col p-1">
+        <div class="float-start me-1">
+          <strong>Title:</strong>
+        </div>
+        <div class="float-start w-75">
+          <input type="text" class="form-control" readonly value="<%= ticket.title %>">
+        </div>
+      </div>
+      <div class="col p-1">
+        <div class="float-start me-1">
+          <strong>Type</strong>
+        </div>
+        <div class="float-start w-75">
+          <select class="form-control" disabled>
+            <option><%= ticket.ticket_type_id %></option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row p-4 border">
+      <div class="col p-1">
+        <strong>Body</strong>
+<textarea class="form-control" rows="8" disabled>
 <%= ticket.body %>
-    </textarea>
-  </p>
-
+</textarea>
+      </div>
+    </div>
+  </div>
 </div>

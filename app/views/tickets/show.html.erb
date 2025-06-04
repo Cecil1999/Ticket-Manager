@@ -2,9 +2,14 @@
 
 <%= render @ticket %>
 
-<div>
-  <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %> |
-  <%= link_to "Back to tickets", tickets_path %>
-
-  <%= button_to "Destroy this ticket", @ticket, method: :delete %>
+<div class="container p-4">
+  <div class="float-start me-2">
+    <%= link_to "Edit this ticket", edit_ticket_path(@ticket), class:"btn btn-primary" %>
+  </div>
+  <div class="float-start me-2">
+    <%= link_to "Back to tickets", tickets_path, class: "btn btn-secondary" %>
+  </div>
+  <div class="float-start">
+    <%= button_to "Destroy this ticket", @ticket, method: :delete, class: "btn btn-danger" %>
+  </div>
 </div>
