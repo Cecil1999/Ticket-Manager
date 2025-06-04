@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: %i[ show edit update destroy ]
+  before_action :ticket_types, only: %i[ index show new edit create update ]
 
   # GET /tickets or /tickets.json
   def index
@@ -58,6 +59,11 @@ class TicketsController < ApplicationController
   end
 
   private
+  # Use callback here to get ticket types to prevent DRY.
+    def ticket_types
+      @ticket_types = TicketType.all.to_ary.map{ |n| [n.type_name, n.id] }
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_ticket
       @ticket = Ticket.find(params.expect(:id))
@@ -65,6 +71,6 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.expect(ticket: [ :title, :ticket_type, :body ])
+      params.expect(ticket: [ :title, :body ])
     end
 end

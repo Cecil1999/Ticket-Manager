@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_03_001033) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_04_004941) do
+  create_table "ticket_types", force: :cascade do |t|
+    t.string "type_name"
+  end
+
   create_table "tickets", force: :cascade do |t|
-    t.string "ticket_type"
+    t.integer "ticket_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "body"
   end
+
+  add_foreign_key "tickets", "ticket_types"
 end
