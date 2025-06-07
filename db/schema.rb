@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_04_004941) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_07_041715) do
   create_table "ticket_types", force: :cascade do |t|
     t.string "type_name"
   end
@@ -19,7 +19,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_04_004941) do
     t.integer "ticket_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
+    t.string "title", null: false
     t.text "body"
   end
 
