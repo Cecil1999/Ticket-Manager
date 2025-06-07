@@ -1,7 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ticket_type_id : 1
-
-two:
-  ticket_type_id : 2
+  title: My Title
+  ticket_type_id: 1

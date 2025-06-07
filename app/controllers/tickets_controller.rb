@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create]
   before_action :set_ticket, only: %i[ show edit update destroy ]
   before_action :ticket_types, only: %i[ index show new edit create update ]
 
