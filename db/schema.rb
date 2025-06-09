@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_07_041715) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_09_230828) do
   create_table "ticket_types", force: :cascade do |t|
     t.string "type_name"
   end
@@ -21,6 +21,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_07_041715) do
     t.datetime "updated_at", null: false
     t.string "title", null: false
     t.text "body"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["username"], name: "unique_username", unique: true
   end
 
   add_foreign_key "tickets", "ticket_types"
