@@ -1,5 +1,4 @@
 class UserSessionController < ApplicationController
-
   def index
     render layout: false
   end

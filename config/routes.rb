@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   # Pages Actions
-  get '/home', to: "pages#home"
+  get "/home", to: "pages#home"
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
