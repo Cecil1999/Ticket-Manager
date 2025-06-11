@@ -14,7 +14,7 @@ class TicketsTest < ApplicationSystemTestCase
     visit tickets_url
     click_on "New ticket"
 
-    fill_in "Type", with: @ticket.ticket_type_id
+    select "Fibre", from: 'ticket_type_id'
     click_on "Create Ticket"
 
     assert_text "Ticket was successfully created"
@@ -25,7 +25,7 @@ class TicketsTest < ApplicationSystemTestCase
     visit ticket_url(@ticket)
     click_on "Edit this ticket", match: :first
 
-    fill_in "Type", with: @ticket.ticket_type_id
+    select "Fibre", from: 'ticket_type_id'
     click_on "Update Ticket"
 
     assert_text "Ticket was successfully updated"
