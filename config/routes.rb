@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   resources :tickets
+  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # User Session Actions
   post "user_session/create", to: "user_session#create"
-
-  # User Actions
-
+  get "user_session/destory", to: "user_session#destory"
 
   # Pages Actions
   get "/home", to: "pages#home"
