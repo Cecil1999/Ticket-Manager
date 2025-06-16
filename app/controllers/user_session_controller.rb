@@ -1,17 +1,23 @@
 class UserSessionController < ApplicationController
+  skip_before_action :is_loggedin
+
   def index
     render layout: false
   end
 
   def create
-    @user = User.find_by(username: params.extract_value(:username))&.authenticate(params.extract_value(:password))
+    @user = User.find_by(username: params[:username])
 
-    @user.inspect
-    # TODO: Need implement logic require for a real login
-    redirect_to home_path
+    if @user && @user.authenticate(params[:password])
+      session[:username] = @user.username
+      redirect_to home_path and return
+    else
+      redirect_to root_path and return
+    end
   end
 
   def destory
+    session.delete(:username)
     redirect_to root_path
   end
 
