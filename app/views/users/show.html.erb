@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+<div class="mt-4">
+  <div class="my-auto mx-auto border border-2 w-50 p-4">
+    <div class="container">
+      <div class="row text-center mb-2">
+        <h3>View User</h3>
+      </div>
+      <div class="row mb-2">
+        <% puts @user %>
+        <div class="col">
+          <label for="user_username">Username</label>
+          <input type="text" id="user_username" value="<%= @user.username %>" disabled>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col">
+          <label for="user_password">Username</label>
+          <input type="text" id="user_password" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
