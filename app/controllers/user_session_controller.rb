@@ -2,6 +2,10 @@ class UserSessionController < ApplicationController
   skip_before_action :is_loggedin
 
   def index
+    if session[:username]
+      redirect_to home_path
+    end
+
     render layout: false
   end
 

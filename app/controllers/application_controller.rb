@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    return User.find_by(username: session[:username]).admin?
+    User.find_by(username: session[:username]).admin?
   end
 
   allow_browser versions: :modern
