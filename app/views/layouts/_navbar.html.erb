@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" style="margin-bottom: 70px;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <div class="mx-auto" style="min-width: fit-content">
       <div class="row text-center">
@@ -6,13 +6,13 @@
       </div>
       <div class="row justify-content-center">
         <ul class="navbar-nav mb-2 ps-4">
-          <li class="nav-item">
+          <li class="nav-item me-1">
             <a class="nav-link active" aria-current="page" href="/home">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/users/new">Profile</a>
+          <li class="nav-item me-1">
+            <a class="nav-link active" aria-current="page" href="/home">Profile</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown me-1">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Tickets
             </a>
@@ -21,11 +21,18 @@
               <li><a class="dropdown-item" href="/tickets/new">Create New Ticket</a></li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-1">
             <a class="btn btn-danger" aria-current="logout" href="/user_session/destory">
               Logout
             </a>
           </li>
+          <% if is_admin? %>
+          <li class="nav-item">
+            <a class="btn btn-primary" aria-current="admin portal" href="/users/">
+              Admin Portal
+            </a>
+          </li>
+          <% end %>
         </ul>
       </div>
     </div>

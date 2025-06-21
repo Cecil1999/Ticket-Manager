@@ -1,0 +1,33 @@
+<div class="row mb-2 text-center">
+  <h3>'Admin' portal - User list.</h3>
+</div>
+<div class="row mb-2">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.username %></td>
+          <td>
+            <div class="float-start me-2">
+              <%= button_to "View User Info", user, class: "btn btn-primary" %>
+            </div>
+            <div class="float-start me-2">
+              <%= button_to "Delete User", user, method: :delete, class:"btn btn-danger" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row mb-2">
+  <a href="/users/new" class="btn btn-primary" style="width: 150px;">
+    Create New User
+  </a>
+</div>
