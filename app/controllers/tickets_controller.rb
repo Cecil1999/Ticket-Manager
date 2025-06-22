@@ -61,7 +61,7 @@ class TicketsController < ApplicationController
   private
     # Use callback here to get ticket types to prevent DRY.
     def ticket_types
-      @ticket_types = TicketType.all.to_ary.map { |n| [ n.type_name, n.id ] }
+      @ticket_types = TicketType.order(:type_name).to_ary.map { |n| [ n.type_name ] }
     end
 
     # Use callbacks to share common setup or constraints between actions.
