@@ -15,7 +15,7 @@
         </div>
         <div class="float-start w-75">
           <select class="form-control" disabled>
-            <option><%= ticket.ticket_type_id %></option>
+            <option><%= @ticket_types[ticket.ticket_type_id]&.first || "Unknown Type" %></option>
           </select>
         </div>
       </div>
