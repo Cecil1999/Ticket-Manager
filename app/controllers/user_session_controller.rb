@@ -21,6 +21,7 @@ class UserSessionController < ApplicationController
 
   def destory
     session.delete(:username)
+    session.delete(:admin_logged_in)
     redirect_to root_path
   end
 

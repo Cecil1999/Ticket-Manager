@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get "/home", to: "pages#home"
 
 
+  # Admin Actions
+  get "/admin/home", to: "admin_session#home"
+  get "/admin/new", to: "admin_session#new" # Admin 'Login'
+  post "/admin/create", to: "admin_session#create" # Admin Login Action
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
