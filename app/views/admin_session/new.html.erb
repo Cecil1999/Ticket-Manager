@@ -1,0 +1,7 @@
+<%= form_with url: "/admin/create", method: :post do |form| %>
+  <%= form.label :username, "Username" %>
+  <%= form.text_field :username %>
+  <%= form.label :password, "Password" %>
+  <%= form.password_field :password %>
+  <%= form.submit %>
+<% end %>
