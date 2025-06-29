@@ -1,24 +1,20 @@
-# README
+# Ticket 'Portal'
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This CRUD webapp created in Rails 8 was designed as an alternative way of creating, than sending 'tickets' to a 3rd party source. A prelude application which serves as the barebones for my Ticket Manager App.
 
-Things you may want to cover:
+-------
 
-* Ruby version
+* Why?
 
-* System dependencies
+My past employer had a static site similar to this that was created/developed in the 2010s, it had a heap of security vuls and it generally wasn't an easy site to use on any other device than a computer.
 
-* Configuration
+In that case, it was limted to only the tech support agents who worked over the phone. So this worked in their case.
 
-* Database creation
+Over the span of my employement I had pitched to my boss and the higher ups that if they gave me some time and resources I could have upgraded the site and create some more tools for us in Technical Support. However, those were shot down.
 
-* Database initialization
+-------
 
-* How to run the test suite
+### Technical Information.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Bootstrap 5.
+- SQLite (DB). (Will create a PostgresSQL Release.)
