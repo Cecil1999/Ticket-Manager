@@ -1,5 +1,5 @@
 class UserSessionController < ApplicationController
-  layout false
+  layout "default"
   skip_before_action :is_loggedin
 
   def index

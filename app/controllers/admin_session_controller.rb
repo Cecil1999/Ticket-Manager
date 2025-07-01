@@ -1,4 +1,5 @@
 class AdminSessionController < ApplicationController
+  layout "default", only: %i[ new ]
   before_action :admin_logged_in?, only: %i[ home ]
 
   def home
