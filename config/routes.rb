@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   # Pages Actions
   get "/home", to: "pages#home"
 
-
   # Admin Actions
-  get "/admin/home", to: "admin_session#home"
+  get "/admin/index", to: "admin_session#index"
   get "/admin/new", to: "admin_session#new" # Admin 'Login'
   post "/admin/create", to: "admin_session#create" # Admin Login Action
 
