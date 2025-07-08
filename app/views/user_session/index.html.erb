@@ -1,21 +1,19 @@
-<div class="container-fluid">
-  <div class="row min-vh-100">
-    <div class="my-auto mx-auto border border-2 w-25 p-4">
-      <div class="mb-3 h-100 text-center">
-        <h3>Login</h3>
-        </div>
-        <%= form_with url: user_session_create_path, method: :post do |form| %>
-          <div class="mb-3">
-            <%= form.label :username, "Username" %>
-            <%= form.text_field :username, class: "form-control" %>
-          </div>
-          <div class="mb-3">
-            <%= form.label :password, "Password" %>
-            <%= form.password_field :password, class: "form-control" %>
-          </div>
-          <%= form.submit(class: "btn btn-primary") %>
-        <% end %>
-      </div>
+<div class="row min-vh-100">
+  <div class="my-auto mx-auto border border-2 w-25 p-4">
+    <div class="mb-3 h-100 text-center">
+      <h3>Login</h3>
     </div>
+    <%= form_with url: user_session_create_path, method: :post do |form| %>
+      <div class="mb-3">
+        <%= form.label :username, "Username" %>
+        <%= form.text_field :username, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :password, "Password" %>
+        <%= form.password_field :password, class: "form-control" %>
+      </div>
+      <%= form.submit(class: "btn btn-primary") %>
+    <% end %>
   </div>
+</div>
 </div>

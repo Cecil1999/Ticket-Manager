@@ -1,7 +1,22 @@
-<%= form_with url: "/admin/create", method: :post do |form| %>
-  <%= form.label :username, "Username" %>
-  <%= form.text_field :username %>
-  <%= form.label :password, "Password" %>
-  <%= form.password_field :password %>
-  <%= form.submit %>
-<% end %>
+<div class="row min-vh-100">
+  <div class="my-auto mx-auto border border-2 w-25 p-4">
+    <%= form_with url: "/admin/create", method: :post do |form| %>
+      <div class="d-flex flex-column">
+        <div class="p-2 text-center">
+          <h3>Admin Portal</h3>
+        </div>
+        <div class="p-2">
+          <%= form.label :username, "Username" %>
+          <%= form.text_field :username, class: "form-control" %>
+        </div>
+        <div class="p-2">
+          <%= form.label :password, "Password" %>
+          <%= form.password_field :password, class: "form-control" %>
+        </div>
+        <div class="p-2">
+          <%= form.submit(class: "btn btn-primary") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
