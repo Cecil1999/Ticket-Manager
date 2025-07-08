@@ -1,4 +1,4 @@
-<!DOCKTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title><%= content_for(:title) || "Ticket Manager" %></title>
@@ -21,7 +21,7 @@
         <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
         <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     </head>
-    <body>
+    <body class="container-fluid">
         <%= yield %>
     </body>
 </html>
