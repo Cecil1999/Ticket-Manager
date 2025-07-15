@@ -1,11 +1,14 @@
 class AdminSessionController < ApplicationController
   layout "default", only: %i[ new ]
-  before_action :admin_logged_in?, only: %i[ home ]
 
-  def home
+  def index
     if !admin_logged_in?
       redirect_to admin_new_path and return
     end
+
+    @users   = User.all
+    @tickets = Ticket.all
+    @ticket_types = TicketType.order(:type_name).to_ary.map { |n| n.type_name }
   end
 
   def new

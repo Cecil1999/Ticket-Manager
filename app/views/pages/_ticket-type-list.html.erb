@@ -1,3 +1,5 @@
-<h1>
-  Ticket Types List.
-</h1>
+<h3>Current Tickets Types</h3>
+
+<% @ticket_types.each do |type| %>
+  <span class="badge bg-primary"><%= type %></span>
+<% end %>
