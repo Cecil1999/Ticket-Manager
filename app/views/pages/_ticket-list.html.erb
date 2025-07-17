@@ -1,8 +1,9 @@
-<table class="table table-condensed">
+<table class="table table-condensed table-hover">
   <thead>
     <tr>
       <th>Ticket Number</th>
       <th>Ticket Type</th>
+      <th>Ticket Title</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -11,7 +12,11 @@
     <tr>
       <td><%= ticket.id %></td>
       <td><%= @ticket_types[ticket.ticket_type_id] || "Unknown Type" %></td>
-      <td><%= link_to "Show this Ticket", ticket %></td>
+      <td><%= ticket.title %></td>
+      <td>
+        <%= button_to "View Ticket", ticket, class: "btn btn-primary me-2 float-start" %>
+        <%= button_to "Delete ticket", ticket, method: :delete, class: "btn btn-danger float-start" %>
+      </td>
     </tr>
     <% end %>
   </tbody>
