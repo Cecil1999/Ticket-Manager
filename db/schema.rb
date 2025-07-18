@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_17_214959) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_16_234000) do
   create_table "ticket_types", force: :cascade do |t|
     t.string "type_name"
+    t.boolean "enabled", default: true
   end
 
   create_table "tickets", force: :cascade do |t|

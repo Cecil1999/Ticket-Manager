@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   post "user_session/create", to: "user_session#create"
   get "user_session/destory", to: "user_session#destory"
 
+  # Ticket Type actions
+  post "ticket_type/create", to: "ticket_type#create"
+  get  "ticket_type/destroy", to: "ticket_type#destroy"
+
   # Pages Actions
   get "/home", to: "pages#home"
 
