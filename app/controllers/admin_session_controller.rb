@@ -6,9 +6,9 @@ class AdminSessionController < ApplicationController
       redirect_to admin_new_path and return
     end
 
-    @users   = User.all
-    @tickets = Ticket.all
-    @ticket_types = TicketType.order(:type_name).to_ary.map { |n| n.type_name }
+    @users        = User.all
+    @tickets      = Ticket.all
+    @ticket_types = TicketType.order(:type_name)
   end
 
   def new

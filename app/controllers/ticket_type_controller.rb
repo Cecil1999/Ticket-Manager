@@ -1,5 +1,6 @@
 class TicketTypeController < ApplicationController
   before_action :admin_check, only: %i[ show edit create destory update ]
+  before_action :set_ticket_type, only: %i[ show ]
 
   def show
   end
@@ -31,6 +32,10 @@ class TicketTypeController < ApplicationController
   private
   def ticket_type_params
      params.expect(TicketType: [ :type_name ])
+  end
+
+  def set_ticket_type
+    @ticket_type = TicketType.find(params.expect(:id))
   end
 
   def admin_check
