@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: %i[ show edit update destroy ]
-  before_action :ticket_types, only: %i[ index show new edit create update ]
+  before_action :ticket_types_ary, only: %i[ index new edit create update ]
+  before_action :ticket_types_hash, only: %i[ show ]
 
   # GET /tickets or /tickets.json
   def index
@@ -60,8 +61,12 @@ class TicketsController < ApplicationController
 
   private
     # Use callback here to get ticket types to prevent DRY.
-    def ticket_types
-      @ticket_types = TicketType.order(:type_name).to_ary.map { |n| [ n.type_name ] }
+    def ticket_types_ary
+      @ticket_type = TicketType.order(:type_name)
+    end
+
+    def ticket_types_hash
+      @ticket_type_hash = TicketType.order(:type_name).map { |type| [ type.id, type.type_name ] }.to_h
     end
 
     # Use callbacks to share common setup or constraints between actions.

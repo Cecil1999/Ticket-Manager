@@ -1,5 +1,26 @@
 <h3>Current Tickets Types</h3>
-
-<% @ticket_types.each do |type| %>
-  <span class="badge bg-primary"><%= type %></span>
-<% end %>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Type name</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ticket_types.each do |type| %>
+    <tr>
+      <td><%= type.type_name %></td>
+      <td>
+        <% if is_admin? %>
+          <%= link_to "View Ticket Type", type, class: "btn btn-primary float-start me-2" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col">
+    <%= link_to "New Ticket Type", new_ticket_type_path, class:"btn btn-primary" %>
+  </div>
+</div>

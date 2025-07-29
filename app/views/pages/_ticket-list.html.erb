@@ -10,11 +10,12 @@
   <tbody>
     <% @tickets.each do |ticket| %>
     <tr>
+      <% puts @ticket_type_hash %>
       <td><%= ticket.id %></td>
-      <td><%= @ticket_types[ticket.ticket_type_id] || "Unknown Type" %></td>
+      <td><%= @ticket_types_hash[ticket.ticket_type_id] || "Unknown Type" %></td>
       <td><%= ticket.title %></td>
       <td>
-        <%= button_to "View Ticket", ticket, class: "btn btn-primary me-2 float-start" %>
+        <%= link_to "Show this Ticket", ticket, class: "btn btn-primary float-start me-2"%>
         <%= button_to "Delete ticket", ticket, method: :delete, class: "btn btn-danger float-start" %>
       </td>
     </tr>
