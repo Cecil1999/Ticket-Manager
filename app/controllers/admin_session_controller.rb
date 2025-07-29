@@ -9,6 +9,7 @@ class AdminSessionController < ApplicationController
     @users        = User.all
     @tickets      = Ticket.all
     @ticket_types = TicketType.order(:type_name)
+    @ticket_types_hash = @ticket_types.map { |type| [ type.id, type.type_name ] }.to_h
   end
 
   def new
