@@ -14,8 +14,8 @@ class TicketTypesController < ApplicationController
 
     respond_to do |format|
       if @ticket_type.save
-        format.html { redirect_to admin_index_path, notice: "Ticket Type Was Created"}
-      else 
+        format.html { redirect_to admin_index_path, notice: "Ticket Type Was Created" }
+      else
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -57,7 +57,7 @@ class TicketTypesController < ApplicationController
   def admin_check
     return unless is_admin?
 
-    flash[:notice] = "Unexplained error occured. "
+    flash[:notice] = "Unexplained error occured."
 
     respond_to do |format|
       format.html
