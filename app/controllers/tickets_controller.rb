@@ -66,7 +66,7 @@ class TicketsController < ApplicationController
     end
 
     def ticket_types_hash
-      @ticket_type_hash = TicketType.order(:type_name).map { |type| [type.id, type.type_name] }.to_h
+      @ticket_type_hash = TicketType.order(:type_name).map { |type| [ type.id, type.type_name ] }.to_h
     end
 
     # Use callbacks to share common setup or constraints between actions.
