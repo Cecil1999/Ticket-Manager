@@ -10,7 +10,11 @@
     <tr>
       <td><%= user.username %></td>
       <% unless session[:username] == user.username %>
-        <td><%= button_to "Destory User", @ticket, method: :delete, class: "btn btn-danger" %></td>
+        <% if user.enabled %>
+          <td><%= button_to "Destory User", user, method: :delete, class: "btn btn-danger" %></td>
+        <% else %>
+          <td><%= button_to "Enable User", user, method: :patch, class:"btn btn-primary" %></td>
+        <% end %>
       <% else %>
         <td></td>
       <% end %>
@@ -18,3 +22,8 @@
     <% end %>
   </tbody>
 </table>
+<div class="row">
+  <div class="col">
+    <%= link_to "New User", new_user_path, class: "btn btn-primary" %>
+  </div>
+</div>
