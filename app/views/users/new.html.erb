@@ -1,28 +1,7 @@
-<div class="mt-4">
-  <div class="my-auto mx-auto border border-2 w-50 p-4">
-    <div class="container">
-      <div class="row text-center mb-2">
-        <h3>Create User</h3>
-      </div>
-      <%= form_with model: @user do |user| %>
-        <div class="row mb-2">
-          <div class="col">
-            <%= user.label :username, "Username", style: "width: 100px" %>
-            <%= user.text_field :username, class: "user-control" %>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <%= user.label :password, "Password", style: "width: 100px" %>
-            <%= user.text_field :password, class: "user-control" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <%= user.submit(class: "btn btn-primary") %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="row">
+  <div class="col text-center">
+    <h3>New User</h3>
   </div>
 </div>
+
+<%= render "form", user: @user %>

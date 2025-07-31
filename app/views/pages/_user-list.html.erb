@@ -13,7 +13,7 @@
         <% if user.enabled %>
           <td><%= button_to "Destory User", user, method: :delete, class: "btn btn-danger" %></td>
         <% else %>
-          <td><%= button_to "Enable User", user, method: :patch, class:"btn btn-primary" %></td>
+          <td><%= link_to "Edit User", edit_user_path(user), class:"btn btn-primary" %></td>
         <% end %>
       <% else %>
         <td></td>
