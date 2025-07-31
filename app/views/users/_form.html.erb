@@ -1,0 +1,45 @@
+<div class="mt-4">
+    <div class="my-auto mx-auto border border-2 w-50 p-4">
+        <div class="container">
+            <div class="row text-center mb-2">
+                <h3>User Information</h3>
+            </div>
+            <% if notice %>
+                <div class="alert alert-info" role="alert">
+                    <strong><%= notice %></strong>
+                </div>
+            <% end %>
+            <%= form_with(model: user) do |form| %>
+                <div class="row mb-4">
+                    <div class="col">
+                        <%= form.label :username %>
+                        <%= form.text_field :username %>
+                    </div>
+                </div>
+                <% if session[:username] == user.username || is_admin? %>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <%= form.label :password %>
+                            <%= form.password_field :password %>
+                        </div>
+                    </div>
+                <% end %>
+
+                <% if is_admin? %>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <%= form.label :enabled %>
+                            <%= form.checkbox :enabled %>
+                       </div>
+                    </div>
+                <% end %>
+
+                <div class="row">
+                    <div class="col">
+                        <%= form.submit(class: "btn btn-primary") %>
+                    </div>
+                 </div>
+            <% end %>
+        </div>
+    </div>
+</div>

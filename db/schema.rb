@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_16_234000) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_30_002740) do
   create_table "ticket_types", force: :cascade do |t|
     t.string "type_name"
     t.boolean "enabled", default: true
@@ -30,6 +30,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_16_234000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
+    t.boolean "enabled", default: true
     t.index ["username"], name: "unique_username", unique: true
   end
 
