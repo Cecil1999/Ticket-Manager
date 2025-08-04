@@ -21,22 +21,16 @@ class AdminSessionController < ApplicationController
   def create
     @user = User.find_by(username: params[:username])
 
-    unless @user
-      # TODO Perhaps log this..?
-      redirect_to admin_new_path and return
-    end
-
-    if @user.username != session[:username]
-      # TODO Perhaps log this..?
-      head :forbidden
-    end
-
-    if @user && @user.authenticate(params[:password]) && @user.admin?
-      session[:logged_in_admin] = @user.username
-      redirect_to admin_index_path and return
-    else
-      # TODO Perhaps log this..?
-      redirect_to admin_new_path and return
+    respond_to do |format|
+      if @user && @user.authenticate(params[:password]) && @user.admin? && @user.username == session[:username]
+        session[:logged_in_admin] = @user.username
+        format.html { redirect_to admin_index_path, notice: "Hello, #{session[:logged_in_admin]}." }
+        format.json { render :index, status: :created }
+      else
+        # TODO Perhaps log this..?
+        format.html { redirect_to admin_new_path, notice: "Something went wrong, contract the admin team for help troubleshooting." }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
