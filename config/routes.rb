@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   resources :tickets
-  resources :users
   resources :ticket_types
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # User Session Actions
-  post "user_session/create", to: "user_session#create"
-  get "user_session/destory", to: "user_session#destory"
+  # User Actions
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   # Pages Actions
   get "/home", to: "pages#home"
@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "user_session#index"
+  root "pages#home"
 end
