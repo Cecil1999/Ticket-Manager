@@ -10,7 +10,6 @@
   <tbody>
     <% @tickets.each do |ticket| %>
     <tr>
-      <% puts @ticket_type_hash %>
       <td><%= ticket.id %></td>
       <td><%= @ticket_types_hash[ticket.ticket_type_id] || "Unknown Type" %></td>
       <td><%= ticket.title %></td>

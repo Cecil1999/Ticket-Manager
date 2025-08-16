@@ -11,7 +11,7 @@
     <tr>
       <td><%= type.type_name %></td>
       <td>
-        <% if is_admin? %>
+        <% if current_user.is_admin? %>
           <%= link_to "View Ticket Type", type, class: "btn btn-primary float-start me-2" %>
         <% end %>
       </td>

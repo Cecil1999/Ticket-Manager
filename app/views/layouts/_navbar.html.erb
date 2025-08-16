@@ -26,6 +26,11 @@
               Logout
             </a>
           </li>
+          <% if current_user.is_admin? %>
+          <li class="nav-item me-1">
+            <%= link_to 'Admin Portal', admin_new_path, class: 'btn btn-primary' %>
+          </li>
+          <% end %>
         </ul>
       </div>
     </div>
