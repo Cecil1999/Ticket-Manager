@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # User Actions
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: "users/sessions"
   }
 
   # Pages Actions
