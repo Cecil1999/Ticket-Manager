@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   end
 
   def admin_check
-    return unless is_admin?
+    return unless current_user.is_admin?
 
     flash[:notice] = "Unexplained error occured."
 

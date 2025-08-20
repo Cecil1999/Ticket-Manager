@@ -26,13 +26,13 @@ class TicketTypesController < ApplicationController
   end
 
   def edit
-    unless is_admin?
+    unless current_user.is_admin?
       head :forbidden
     end
   end
 
   def update
-    unless is_admin?
+    unless current_user.is_admin?
       head :forbidden
     end
 
@@ -55,7 +55,7 @@ class TicketTypesController < ApplicationController
   end
 
   def admin_check
-    return unless is_admin?
+    return unless current_user.is_admin?
 
     flash[:notice] = "Unexplained error occured."
 

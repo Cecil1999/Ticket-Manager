@@ -13,7 +13,7 @@ class AdminSessionController < ApplicationController
   end
 
   def new
-    if !is_admin?
+    if !current_user.is_admin?
       head :forbidden
     end
   end
