@@ -19,10 +19,10 @@ class AdminSessionController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(email: params[:email])
 
     respond_to do |format|
-      if @user && @user.authenticate(params[:password]) && @user.admin? && @user.username == session[:username]
+      if @user && @user.admin?
         session[:logged_in_admin] = @user.username
         format.html { redirect_to admin_index_path, notice: "Hello, #{session[:logged_in_admin]}." }
         format.json { render :index, status: :created }
@@ -40,6 +40,6 @@ class AdminSessionController < ApplicationController
   end
 
   def admin_params
-    params.expect([ :username, :password ])
+    params.expect([ :email, :password ])
   end
 end
