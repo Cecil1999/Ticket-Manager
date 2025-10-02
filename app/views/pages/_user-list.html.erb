@@ -9,6 +9,7 @@
     <% @users.each do |user| %>
     <tr>
       <td><%= user.email %></td>
+      <td><%= link_to "Edit User", edit_user_registration_path(user), class: "btn btn-primary" %></td>
     </tr>
     <% end %>
   </tbody>
