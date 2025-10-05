@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
+  namespace :admin do
+    resources :users, only: [ :destroy ]
+  end
+
   # Pages Actions
   get "/home", to: "pages#home"
 

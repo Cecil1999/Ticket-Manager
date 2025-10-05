@@ -9,7 +9,12 @@
     <% @users.each do |user| %>
     <tr>
       <td><%= user.email %></td>
-      <td><%= link_to "Edit User", edit_user_registration_path(user), class: "btn btn-primary" %></td>
+      <td>
+        <%= link_to "Edit User", edit_user_registration_path(user), class: "btn btn-primary float-start me-2" %>
+        <% if user.enabled %>
+          <%= link_to "Destory User", admin_user_path(user), data: { "turbo-method": :delete }, class: "btn btn-danger float-start" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

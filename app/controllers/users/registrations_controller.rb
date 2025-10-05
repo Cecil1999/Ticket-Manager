@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    puts resource
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -46,9 +45,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    resource.enabled = :false
+    # Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+
+    resource.save
+
+    set_flash_message! :notice, :destroyed
+    yield resource if block_given?
+
+    redirect_to admin_index_path
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
