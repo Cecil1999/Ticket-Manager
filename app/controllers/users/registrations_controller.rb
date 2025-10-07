@@ -40,21 +40,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  # As of now, this route will be forbidden as we only want Administrators to edit accounts, and rather have the POST admin/users/(id) route edit this would be better.
+  def update
+    head :forbidden
+  end
 
   # DELETE /resource
   def destroy
-    resource.enabled = :false
-    # Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
-
-    resource.save
-
-    set_flash_message! :notice, :destroyed
-    yield resource if block_given?
-
-    redirect_to admin_index_path
+    head :forbidden
   end
 
   # GET /resource/cancel
