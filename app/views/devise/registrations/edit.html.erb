@@ -24,14 +24,39 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col">
-                    <%= form.label :password %>
-                    <%= form.password_field :password, class: "form-control" %>
-                </div>
-                <% if @minimum_password_length %>
-                <em><%= @minimum_password_length %> characters minimum</em>
-                <% end %>
+                <label>Change Password? <input type="checkbox" id="change_password_cb" name="change_password_cb"></label>
             </div>
+            <div class="row mb-4 d-none" id="change_password_div">
+                <div class="bs-callout bs-callout-info">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <%= form.label :password %>
+                            <%= form.password_field :password, class: "form-control" %>
+                        </div>
+                        <% if @minimum_password_length %>
+                        <em><%= @minimum_password_length %> characters minimum.</em>
+                        <% end %>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col text-start">
+                            <%= form.label :password_confirmation %>
+                            <%= form.password_field :password_confirmation, class: "form-control" %>
+                        </div>
+                        <em>Must match the password field above.</em>
+                        <% if @minimum_password_length %>
+                        <em><%= @minimum_password_length %> characters minimum.</em>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <% if current_user.is_admin? %>
+            <div class="row mb-4">
+                <div class="col">
+                    <%= form.label :admin %>
+                    <%= form.checkbox :admin %>
+                </div>
+            </div>
+            <% end %>
             <div class="row mb-4">
                 <div class="col">
                     <%= form.label :enabled %>
