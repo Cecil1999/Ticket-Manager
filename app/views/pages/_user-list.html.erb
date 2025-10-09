@@ -1,29 +1,26 @@
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>Username</th>
+      <th>User Email</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td><%= user.username %></td>
-      <% unless session[:username] == user.username %>
+      <td><%= user.email %></td>
+      <td>
+        <%= link_to "Edit User", edit_admin_user_path(user), class: "btn btn-primary float-start me-2" %>
         <% if user.enabled %>
-          <td><%= button_to "Destory User", user, method: :delete, class: "btn btn-danger" %></td>
-        <% else %>
-          <td><%= link_to "Edit User", edit_user_path(user), class:"btn btn-primary" %></td>
+          <%= link_to "Destory User", admin_user_path(user), data: { "turbo-method": :delete }, class: "btn btn-danger float-start" %>
         <% end %>
-      <% else %>
-        <td></td>
-      <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
 <div class="row">
   <div class="col">
-    <%= link_to "New User", new_user_path, class: "btn btn-primary" %>
+    <%= link_to "Add User", new_user_registration_path, class: "btn btn-primary" %>
   </div>
 </div>

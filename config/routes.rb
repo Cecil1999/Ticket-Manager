@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   # User Actions
   devise_for :users, controllers: {
-    sessions: "users/sessions"
+    sessions: "users/sessions",
+    registrations: "users/registrations"
   }
+
+  namespace :admin do
+    resources :users, only: [ :destroy, :edit, :update ]
+  end
 
   # Pages Actions
   get "/home", to: "pages#home"
