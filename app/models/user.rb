@@ -8,4 +8,13 @@ class User < ApplicationRecord
   def is_admin?
     self.admin
   end
+
+  def admin_update(user, params)
+    if params[:change_password_cb]
+      user.update_with_password(params)
+    else
+      user.update_without_password(params)
+    end
+  end
+
 end

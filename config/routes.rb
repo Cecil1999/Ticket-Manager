@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users, only: [ :destroy ]
+    resources :users, only: [ :destroy, :edit, :update ]
   end
 
   # Pages Actions

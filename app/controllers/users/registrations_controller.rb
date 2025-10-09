@@ -35,9 +35,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    head :forbidden
+  end
 
   # PUT /resource
   # As of now, this route will be forbidden as we only want Administrators to edit accounts, and rather have the POST admin/users/(id) route edit this would be better.
